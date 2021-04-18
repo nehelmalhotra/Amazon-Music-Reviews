@@ -53,13 +53,44 @@ https://www.kaggle.com/c/mie1624winter2021/data
  
   ![Most Reviewed Sentiment](images/Top_reviewed_sentiments.png)
  
- 
+- Wordcloud for negative sentiment reviews:
+  ![Negative Sentiment](images/Negative_wordcloud.png)
+  
 # Sentiment Analysis and Review Prediction <a name="sentiment"></a>
 
+Sentiment analysis can be conducted by training a supervised machine learning model on a portion of the review data which can be used to predict a rating that the user might assign just by the analyzing the review text.
+
+## Multi-class classifcation <a name="classification"></a>
+
+In order to do this, a Logistic Regression model and a Multi-class Naive Bayes model is trained on the vectorized review data. The data is vectorized using tf-Idf which counts how frequently a word appears in a review and then penalizes it based on its occurance in the entire set of reviews.
+
+- Logistic Regression model gives a train accuracy of 73%.
+
+  ![Regression](images/logistic_regresssion.png)
+  
+- Naive Bayes model gives a train accuracy of 73%.
+
+  ![Bayes](images/naive_bayes.PNG)
+
+## Neural Networks - LSTM <a name="classification"></a>
+
+In order to improve on this accuracy a few step are taken:
+1. Glove word embeddings are used to vectorize the data. These embeddings are pretrained on a number of features and help classify different words together.
+2. A regression type model is used instead of classification. 
+3. Neural networks framework in Keras is used with LSTM. Long Short-Term Memory (LSTM) network is a type of RNN capable of learning order dependence in sequence prediction problems. 
+4. In addition to the review text, price and genre are also included as features in the NN. Genre is one-hot-encoded and price is standardized for this.
+
+- Proposed LSTM model
+  ![LSTM](images/lstm.PNG)
+
+Hyper-parameter tuning is conduced for the model and then the model is fitted on the train dataset. 
+
+An MSE of 0.42 is obtained for the train set and 0.48 for the test set. 
 
 ## Conclusion <a name="conclusion"></a>
 
-Supervised learning algorithms can then be trained on pre-clustered data to predict the clusters of new and unseen articles. This is a powerful tool and is currently being used by companies like Google for news clustering.
+NLP in combination with Neural Networks has made is possible to analyze textual data and train very accurate models to predict sentiments. 
 
-When training a logsitic regression model on the data and 15 clusters, an accuracy score of 0.97 was obtained for the train data and 0.94 for the test/validation data.
+- Predicted Reviews
 
+![Predicted](images/Distribution_of_ratings_predicted.PNG)
