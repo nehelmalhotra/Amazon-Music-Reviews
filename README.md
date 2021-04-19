@@ -64,7 +64,7 @@ Sentiment analysis can be conducted by training a supervised machine learning mo
 
 In order to do this, a Logistic Regression model and a Multi-class Naive Bayes model is trained on the vectorized review data. The data is vectorized using tf-Idf which counts how frequently a word appears in a review and then penalizes it based on its occurance in the entire set of reviews.
 
-- Logistic Regression model gives a train accuracy of 73%.
+- Logistic Regression model gives a train accuracy of 70%.
 
   ![Regression](images/logistic_regression_matrix.png)
   
