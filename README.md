@@ -66,7 +66,7 @@ In order to do this, a Logistic Regression model and a Multi-class Naive Bayes m
 
 - Logistic Regression model gives a train accuracy of 73%.
 
-  ![Regression](images/logistic_regresssion.png)
+  ![Regression](images/logistic_regression_matrix.png)
   
 - Naive Bayes model gives a train accuracy of 73%.
 
